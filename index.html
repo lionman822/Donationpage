@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>栖息地守望者基金会 - 马赛马拉生态转型募捐</title>
+    <title>为什么要把牧区转换成自然保护区？ - 栖息地守望者基金会</title>
     
     <!-- 引入 Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -27,6 +27,7 @@
                         simbaGreen: '#3A5F43',   // 星巴绿 (主行动色)
                         maasaiRed: '#8E2814',    // 马赛红 (强调色/心形)
                         accentGold: '#D4AF37',   // 点缀金
+                        earthBrown: '#6B4423',   // 泥土棕
                     },
                     fontFamily: {
                         sans: ['system-ui', '-apple-system', 'sans-serif'],
@@ -38,15 +39,15 @@
     </script>
     <style>
         body { background-color: #FDFBF7; color: #3E2C1B; }
-        /* 平滑滚动 */
         html { scroll-behavior: smooth; }
+        .safari-border { border: 1px solid #E8DCC4; }
     </style>
 </head>
 <body class="antialiased flex flex-col min-h-screen">
 
     <!-- 导航栏 -->
     <nav class="sticky top-0 z-50 shadow-sm px-6 py-4 flex justify-between items-center bg-white border-b border-bgSand">
-        <div class="font-bold text-xl flex items-center gap-2 text-simbaGreen">
+        <div class="font-bold text-lg md:text-xl flex items-center gap-2 text-simbaGreen">
             <i data-lucide="shield" class="w-6 h-6"></i>
             <span id="nav-title">栖息地守望者基金会</span>
         </div>
@@ -55,8 +56,8 @@
                 <i data-lucide="globe" class="w-5 h-5"></i>
                 <span id="nav-toggle">EN</span>
             </button>
-            <button onclick="document.getElementById('donate-section').scrollIntoView()" class="hidden sm:block px-6 py-2 rounded-full font-bold text-white transition-colors bg-maasaiRed hover:opacity-90">
-                <span id="nav-donate">立即捐赠</span>
+            <button onclick="document.getElementById('donate-section').scrollIntoView()" class="hidden sm:block px-6 py-2 rounded-full font-bold text-white transition-colors bg-maasaiRed hover:opacity-90 shadow-md">
+                <span id="nav-donate">立即支持</span>
             </button>
         </div>
     </nav>
@@ -68,63 +69,135 @@
             <span id="hero-tag" class="inline-block px-4 py-1 rounded-full text-sm font-bold tracking-wider mb-6 bg-white/10 border border-white/30">
                 马赛马拉生态转型募捐计划
             </span>
-            <h1 class="text-4xl md:text-6xl font-extrabold mb-6 leading-tight">
-                <span id="hero-title1">让草原重新养活牧民，</span><br class="hidden md:block"/>
-                <span id="hero-title2">也重新养活狮子与大象。</span>
+            <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-6 leading-tight">
+                <span id="hero-title">为什么要把牧区转换成自然保护区？</span>
             </h1>
-            <p id="hero-desc" class="text-xl opacity-90 mb-10 max-w-2xl mx-auto font-serif italic">
-                草原承载力已近极限。我们并非要把牧民赶出草原，而是通过建立“社区自然保护区”，实现生态恢复与社区增收的双赢。
+            <p id="hero-desc" class="text-xl md:text-2xl opacity-90 mb-10 max-w-3xl mx-auto font-serif italic text-accentGold">
+                "这不是把牧民赶出草原，而是让草原重新养活牧民，也重新养活狮子、大象、长颈鹿和整个马赛马拉。"
             </p>
             <button onclick="document.getElementById('donate-section').scrollIntoView()" class="px-8 py-4 rounded-full text-lg font-bold shadow-lg transition-transform hover:scale-105 flex items-center gap-2 mx-auto bg-bgSand text-textDark">
                 <i data-lucide="heart" class="w-5 h-5 text-maasaiRed fill-maasaiRed"></i>
-                <span id="hero-btn">支持我们的行动</span>
+                <span id="hero-btn">参与守护行动</span>
             </button>
         </div>
     </header>
 
-    <!-- 危机与解决方案陈述 -->
-    <section class="py-20 px-6 max-w-5xl mx-auto">
-        <div class="grid md:grid-cols-2 gap-16 items-center">
-            <div>
-                <h2 id="crisis-title" class="text-3xl font-bold mb-6 text-simbaGreen">面临的危机</h2>
-                <p id="crisis-p1" class="text-lg leading-relaxed mb-4">随着人口和牲畜的增加，马赛马拉正面临严重的水土流失和植被退化。野生动物失去了生存空间，人兽冲突日益加剧。</p>
-                <p id="crisis-p2" class="text-lg leading-relaxed text-opacity-80 text-textMuted">单靠强硬的隔离无法解决问题，草场退化最终伤害的不仅是野生动物，还有深度依赖草原的马赛社区。</p>
-            </div>
-            <div class="p-8 rounded-2xl shadow-sm bg-bgSand border border-accentGold">
-                <h2 id="solution-title" class="text-2xl font-bold mb-6 whitespace-pre-line text-textDark">我们的解决方案：<br>社区自然保护区模式</h2>
-                <ul id="solution-items" class="space-y-4">
-                    <!-- 动态生成 -->
-                </ul>
-            </div>
-        </div>
-    </section>
-
-    <!-- 资金透明度 -->
-    <section class="py-16 px-6 bg-white border-y border-bgSand">
-        <div class="max-w-5xl mx-auto text-center">
-            <h2 id="transparency-title" class="text-3xl font-bold mb-4 text-textDark">财务透明：您的捐款去向何方？</h2>
-            <p id="transparency-desc" class="text-lg mb-10 max-w-2xl mx-auto text-textMuted">
-                我们正在支持纳书莱、马拉瑞波伊、奥拉罗三大保护区（共计约38,500英亩）。近80%的预算将直接用于向马赛社区支付土地租金，这是保护区长续运转的基石。
+    <!-- 一、 危机与后果 (The Problem) -->
+    <section class="py-20 px-6 max-w-6xl mx-auto">
+        <div class="text-center mb-16">
+            <h2 id="sec1-title" class="text-3xl md:text-4xl font-bold mb-4 text-simbaGreen">一、 我们面临的危机与后果</h2>
+            <p id="sec1-sub" class="text-lg max-w-3xl mx-auto text-textMuted">
+                马赛人与野生动物世代共享草原。但人口增加与过度放牧，让草原承载力接近极限，生存空间被不断压缩。
             </p>
-            <div id="budgetChart" class="h-80 w-full max-w-2xl mx-auto"></div>
+        </div>
+        <div class="grid md:grid-cols-2 gap-8">
+            <div class="bg-white p-8 rounded-2xl safari-border shadow-sm">
+                <div class="flex items-center gap-3 mb-6 text-maasaiRed">
+                    <i data-lucide="alert-triangle" class="w-8 h-8"></i>
+                    <h3 id="sec1-h1" class="text-2xl font-bold">生态压力剧增</h3>
+                </div>
+                <ul id="crisis-list" class="space-y-4 text-lg"></ul>
+            </div>
+            <div class="bg-white p-8 rounded-2xl safari-border shadow-sm">
+                <div class="flex items-center gap-3 mb-6 text-maasaiRed">
+                    <i data-lucide="trending-down" class="w-8 h-8"></i>
+                    <h3 id="sec1-h2" class="text-2xl font-bold">引发的严重后果</h3>
+                </div>
+                <ul id="consequence-list" class="space-y-4 text-lg"></ul>
+            </div>
+        </div>
+        <div class="mt-12 p-6 bg-bgSand rounded-xl text-center text-lg font-bold text-textDark border border-accentGold shadow-inner">
+            <span id="sec1-conclusion">草原退化，最终伤害的不只是野生动物，也包括依赖草原生活的马赛社区。</span>
         </div>
     </section>
 
-    <!-- 核心互动认捐区 -->
+    <!-- 二、 解决方案与社区收益 (Solution & Benefits) -->
+    <section class="py-20 px-6 bg-white border-y border-bgSand">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 id="sec2-title" class="text-3xl md:text-4xl font-bold mb-4 text-simbaGreen">二、 解决方案与社区共赢</h2>
+                <p id="sec2-sub" class="text-lg max-w-3xl mx-auto text-textMuted">
+                    建立新的土地利用模式：生态保护 + 栖息地恢复 + 社区收益 + 可持续发展。保护自然，必须让当地社区真正受益。
+                </p>
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <!-- 解决方案列表 -->
+                <div>
+                    <h3 id="sec2-h1" class="text-2xl font-bold mb-6 text-textDark">如何有效解决？</h3>
+                    <div id="solution-grid" class="grid gap-4"></div>
+                    
+                    <h3 id="sec2-h2" class="text-2xl font-bold mt-10 mb-4 text-textDark">社区福利显著改善</h3>
+                    <div id="welfare-list" class="flex flex-wrap gap-3"></div>
+                </div>
+
+                <!-- 收入对比图表 -->
+                <div class="bg-bgLight p-6 rounded-2xl safari-border shadow-sm">
+                    <h3 id="income-chart-title" class="text-xl font-bold text-center mb-2">马赛家庭年均收入对比</h3>
+                    <p id="income-chart-sub" class="text-sm text-center text-textMuted mb-6">当野生动物从“威胁”变成“资产”，保护才可能真正持续</p>
+                    <div id="incomeChart" class="h-80 w-full"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 三、 保护区在哪里 (Location & Area) -->
+    <section class="py-20 px-6 max-w-6xl mx-auto">
+        <div class="grid lg:grid-cols-2 gap-16 items-center">
+            <!-- 保护区面积图表 -->
+            <div class="bg-white p-6 rounded-2xl safari-border shadow-sm order-2 lg:order-1">
+                <h3 id="area-chart-title" class="text-xl font-bold text-center mb-2">我们重点支持的三大保护区</h3>
+                <p id="area-chart-sub" class="text-sm text-center text-textMuted mb-6">总计约 38,500 英亩 (约156平方公里)，71名巡护员</p>
+                <div id="areaChart" class="h-80 w-full"></div>
+            </div>
+
+            <!-- 位置信息 -->
+            <div class="order-1 lg:order-2">
+                <h2 id="sec3-title" class="text-3xl font-bold mb-6 text-simbaGreen">三、 我们的保护区在哪里？</h2>
+                <div class="bg-bgSand p-6 rounded-xl border border-accentGold mb-6 text-lg space-y-3">
+                    <p class="flex items-center gap-2"><i data-lucide="map-pin" class="text-maasaiRed"></i> <strong id="loc-country">国家：</strong> 肯尼亚 Kenya</p>
+                    <p class="flex items-center gap-2"><i data-lucide="map" class="text-simbaGreen"></i> <strong id="loc-region">地区：</strong> 马赛马拉 Maasai Mara</p>
+                    <p class="flex items-center gap-2"><i data-lucide="compass" class="text-textDark"></i> <strong id="loc-coord">大致坐标：</strong> 南纬 1.49°, 东经 35.14°</p>
+                </div>
+                <p id="sec3-desc" class="text-lg leading-relaxed text-textMuted">
+                    我们的重点工作是支持肯尼亚马赛马拉地区的社区保护区发展，帮助当地牧民通过生态保护和生态旅游获得长期收益，同时保护狮子、猎豹、花豹、大象、长颈鹿、斑马、角马等重要野生动物的栖息地。
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 四、 预算透明度 (Budget Transparency) -->
+    <section class="py-20 px-6 bg-[#F9F7F1] border-y border-bgSand">
+        <div class="max-w-6xl mx-auto text-center">
+            <h2 id="sec4-title" class="text-3xl md:text-4xl font-bold mb-4 text-simbaGreen">四、 基础年度预算概算</h2>
+            <p id="sec4-sub" class="text-lg mb-10 max-w-3xl mx-auto text-textMuted">
+                基础年度预算约为 100 万美元。其中支付土地租金是让保护区长期存在的基础，也是让牧民直接受益的关键机制。
+            </p>
+            <div class="bg-white p-8 rounded-3xl safari-border shadow-lg">
+                <div id="budgetChart" class="h-[400px] w-full"></div>
+                <p id="sec4-note" class="text-sm mt-4 text-textMuted italic">
+                    * 该基础预算暂未包括越野车、摩托车、新建巡护站、红外相机批量采购和防狮围栏的建设费用。
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 五、 互动认捐区 & 物资支持 (Donation Grid) -->
     <section id="donate-section" class="py-24 px-6 max-w-6xl mx-auto">
-        <div class="text-center mb-12">
-            <h2 id="items-title" class="text-4xl font-extrabold mb-4 text-simbaGreen">选择您的守护项目</h2>
+        <div class="text-center mb-16">
+            <h2 id="items-title" class="text-4xl font-extrabold mb-4 text-simbaGreen">五、 参与我们的守护行动</h2>
             <p id="items-desc" class="text-lg max-w-2xl mx-auto text-textMuted">
-                每一份支持，无论大小，都在真实地改变东非草原的命运。请选择您希望资助的具体项目：
+                为了把牧区逐步转换为真正有效的自然保护区并保障长期运转，我们需要以下资金和物资支持。您可以点击下方卡片进行模拟认捐：
             </p>
         </div>
 
-        <div id="donation-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-            <!-- 动态渲染购物车项目 -->
+        <h3 id="funds-h" class="text-2xl font-bold mb-6 flex items-center gap-2"><i data-lucide="coins" class="text-accentGold"></i> 资金支持 (可单独认捐项目)</h3>
+        <div id="donation-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mb-16">
+            <!-- 动态渲染认捐项目 -->
         </div>
 
         <!-- 悬浮的捐赠结算栏 -->
-        <div id="cart-summary" class="hidden sticky bottom-6 mt-12 bg-white rounded-2xl shadow-2xl p-6 flex-col md:flex-row items-center justify-between gap-6 border-t-4 border-maasaiRed">
+        <div id="cart-summary" class="hidden sticky bottom-6 z-40 bg-white rounded-2xl shadow-[0_10px_40px_rgba(0,0,0,0.2)] p-6 flex-col md:flex-row items-center justify-between gap-6 border-t-4 border-maasaiRed">
             <div>
                 <p id="cart-bill" class="text-sm font-bold uppercase mb-1 text-textMuted">您的野保影响力账单</p>
                 <div class="text-3xl font-black text-textDark">
@@ -137,10 +210,15 @@
                 </p>
             </div>
             <button class="w-full md:w-auto px-10 py-4 rounded-full font-bold text-lg text-white shadow-lg transition-transform hover:scale-105 flex items-center justify-center gap-2 bg-simbaGreen">
-                <span id="cart-submit">提交认捐意向</span> 
+                <span id="cart-submit">联系基金会确认捐赠</span> 
                 <i data-lucide="chevron-right" class="w-5 h-5"></i>
             </button>
         </div>
+
+        <hr class="border-bgSand my-12" />
+
+        <h3 id="mats-h" class="text-2xl font-bold mb-6 flex items-center gap-2"><i data-lucide="package" class="text-earthBrown"></i> 物资支持 (我们也欢迎以下物资捐赠)</h3>
+        <div id="materials-list" class="flex flex-wrap gap-3 text-sm font-medium"></div>
     </section>
 
     <!-- 严格定制的页脚 -->
@@ -153,14 +231,14 @@
                     <h3 id="footer-nav-title" class="text-2xl font-bold text-white">栖息地守望者基金会</h3>
                 </div>
                 <p id="footer-org" class="opacity-80 mb-6 leading-relaxed max-w-md whitespace-pre-line"></p>
-                <div class="inline-flex items-center gap-2 px-4 py-2 rounded bg-white/10 mb-8 border border-white/10">
+                <div class="inline-flex items-center gap-2 px-4 py-2 rounded bg-white/10 mb-8 border border-white/10 shadow-inner">
                     <i data-lucide="info" class="w-5 h-5 text-accentGold"></i>
                     <span id="footer-pub" class="font-bold text-white tracking-wide">发布：马拉野保学院</span>
                 </div>
             </div>
 
             <!-- 右侧：创始人简介与社交平台 -->
-            <div class="bg-white/5 p-8 rounded-2xl border border-[rgba(232,220,196,0.1)]">
+            <div class="bg-white/5 p-8 rounded-2xl border border-[rgba(232,220,196,0.1)] shadow-lg">
                 <h4 id="footer-founder-title" class="text-xl font-bold text-white mb-4 border-b border-white/10 pb-4">创始人：星巴 (Simba Qiang Zhuo)</h4>
                 <p class="text-sm opacity-90 leading-relaxed mb-6 text-justify">
                     <span id="footer-founder-desc1"></span><br><br>
@@ -184,35 +262,83 @@
         </div>
     </footer>
 
-    <!-- JavaScript 交互逻辑 -->
+    <!-- JavaScript 数据与交互逻辑 -->
     <script>
-        // --- 1. 多语言数据配置字典 ---
+        // --- 1. 多语言数据配置字典 (完整纳入 PDF 内容) ---
         const dict = {
             zh: {
-                nav: { title: '栖息地守望者基金会', donate: '立即捐赠', toggle: 'EN' },
-                hero: { tag: '马赛马拉生态转型募捐计划', title1: '让草原重新养活牧民，', title2: '也重新养活狮子与大象。', desc: '草原承载力已近极限。我们并非要把牧民赶出草原，而是通过建立“社区自然保护区”，实现生态恢复与社区增收的双赢。', btn: '支持我们的行动' },
-                crisis: { title: '面临的危机', p1: '随着人口和牲畜的增加，马赛马拉正面临严重的水土流失和植被退化。野生动物失去了生存空间，人兽冲突日益加剧。', p2: '单靠强硬的隔离无法解决问题，草场退化最终伤害的不仅是野生动物，还有深度依赖草原的马赛社区。' },
-                solution: { title: '我们的解决方案：<br>社区自然保护区模式', items: ['向牧民支付土地租金，提供稳定收入', '减少核心区放牧压力，恢复生态植被', '建立本地巡护体系，开展反盗猎巡逻', '修建防狮围栏，化解人兽冲突保护家畜'] },
-                transparency: { title: '财务透明：您的捐款去向何方？', desc: '我们正在支持纳书莱、马拉瑞波伊、奥拉罗三大保护区（共计约38,500英亩）。近80%的预算将直接用于向马赛社区支付土地租金，这是保护区长续运转的基石。' },
-                budget: [
-                    { name: '土地租金 (回馈社区)', value: 770000 },
-                    { name: '巡护体系 (人力与装备)', value: 218207 },
-                    { name: '运营与维护 (车辆/油耗)', value: 14400 },
-                ],
-                itemsSection: { title: '选择您的守护项目', desc: '每一份支持，无论大小，都在真实地改变东非草原的命运。请选择您希望资助的具体项目：', pledgeBtn: '认捐' },
-                items: [
-                    { id: 'land', icon: 'map', title: '保护区土地租金', desc: '支持1英亩土地租金1年，保障牧民长期收益', price: 20 },
-                    { id: 'food', icon: 'trees', title: '巡护员食物保障', desc: '支持1名巡护员1天的基本野外食物', price: 4 },
-                    { id: 'salary', icon: 'users', title: '巡护员工资', desc: '支持1名巡护员1个月的薪酬', price: 120 },
-                    { id: 'equipment', icon: 'shield', title: '巡护员基础装备', desc: '制服、皮靴、雨具、睡袋等 (可用3年)', price: 220 },
-                    { id: 'camera', icon: 'camera', title: '红外监测相机', desc: '用于监测野生动物及盗猎活动', price: 60 },
-                    { id: 'fence', icon: 'check-circle-2', title: '标准化防狮围栏', desc: '加固牛羊圈，有效缓解人兽冲突', price: 2500 },
-                    { id: 'moto', icon: 'trending-up', title: '机动巡护摩托车', desc: '提升草原巡逻与反盗猎的机动性', price: 1500 },
-                    { id: 'jeep', icon: 'car', title: '巡护越野车', desc: '伤病动物救援及核心区重装巡护', price: 60000 },
-                ],
-                cart: { bill: '您的野保影响力账单', total: '合计:', unit: 'USD', sub: '您将资助 {num} 项急需的物资与行动。', submit: '提交认捐意向' },
+                nav: { title: '栖息地守望者基金会', donate: '立即支持', toggle: 'EN' },
+                hero: { tag: '马赛马拉生态转型计划', title: '为什么要把牧区转换成自然保护区？', desc: '“这不是把牧民赶出草原，而是让草原重新养活牧民，也重新养活狮子、大象、长颈鹿和整个马赛马拉。”', btn: '参与守护行动' },
+                sec1: { 
+                    title: '一、 我们面临的危机与后果', 
+                    sub: '马赛人与野生动物世代共享草原。但人口增加与牲畜增加，让草原承载力接近极限，生存空间被不断压缩。',
+                    h1: '面临的生态压力', h2: '引发的严重后果', conclusion: '一句话总结：草原退化，最终伤害的不只是野生动物，也包括依赖草原生活的马赛社区。',
+                    crises: ['水土流失加剧', '植被退化严重', '野生动物栖息地减少', '生物多样性下降', '社区收入来源单一，过度依赖放牧'],
+                    consequences: [
+                        '<strong>旱季旱情加重：</strong>植被减少，土壤保水能力下降，人畜饮水更加困难。',
+                        '<strong>雨季水灾加重：</strong>草地退化后，雨水难以被土壤吸收，洪水更容易冲毁牛圈羊圈。',
+                        '<strong>野生动物失去栖息地：</strong>狮子、大象等物种活动空间被压缩，种群数量下降。',
+                        '<strong>生态失衡加剧：</strong>自然平衡被破坏，虫灾和疾病风险增加。',
+                        '<strong>社区生活条件恶化：</strong>牲畜质量下降，收入减少，贫困加重。'
+                    ]
+                },
+                sec2: {
+                    title: '二、 解决方案与社区共赢',
+                    sub: '建立新的土地利用模式：生态保护 + 栖息地恢复 + 社区收益 + 可持续发展。保护自然，必须让当地社区真正受益。',
+                    h1: '如何有效解决？', h2: '社区福利改善',
+                    solutions: [
+                        { icon: 'banknote', t: '向牧民支付土地租金', d: '让牧民从保护土地中获得稳定收入' },
+                        { icon: 'leaf', t: '减少核心区域放牧压力', d: '给草地恢复时间，让野生动物重获安全栖息地' },
+                        { icon: 'camera', t: '发展生态旅游', d: '通过野生动物观察、营地住宿等创造可持续收入' },
+                        { icon: 'shield-check', t: '建立巡护体系', d: '开展反盗猎、动物监测、人兽冲突缓解' },
+                        { icon: 'smartphone', t: '开展科学监测', d: '利用红外相机、智能手机持续监测栖息地变化' }
+                    ],
+                    welfare: ['学校教学条件改善', '饮水设施建设', '妇女就业机会增加', '青年获得巡护及向导培训', '社区公共服务能力提升'],
+                    chartTitle: '马赛家庭年均收入对比', chartSub: '当野生动物从“威胁”变成“资产”，保护才可能真正持续',
+                    incomeData: [{name: '传统单一放牧', val: 500}, {name: '社区保护区模式', val: 3700}]
+                },
+                sec3: {
+                    title: '三、 我们的保护区在哪里？',
+                    loc_country: '国家：', loc_region: '地区：', loc_coord: '大致坐标：',
+                    desc: '我们的重点工作，是支持肯尼亚马赛马拉地区的社区保护区发展，帮助当地牧民通过生态保护和生态旅游获得长期收益，同时保护狮子、猎豹、花豹、大象、长颈鹿、斑马、角马等重要野生动物的栖息地。',
+                    chartTitle: '我们重点支持的三大保护区', chartSub: '总计约 38,500 英亩 (约156平方公里)，配备 71 名巡护员',
+                    areaData: [{name: '纳书莱 (18名巡护员)', value: 5000}, {name: '马拉瑞波伊 (33名巡护员)', value: 13500}, {name: '奥拉罗 (20名巡护员)', value: 20000}]
+                },
+                sec4: {
+                    title: '四、 基础年度预算概算',
+                    sub: '基础年度预算约为 100 万美元。其中支付土地租金是让保护区长期存在的基础，也是让牧民从保护野生动物中直接受益的关键机制。',
+                    note: '* 该基础预算暂未包括越野车、摩托车、新建巡护站、红外相机批量采购和防狮围栏的建设费用。',
+                    budgetData: [
+                        { name: '土地租金 (77万美元)', value: 770000 },
+                        { name: '巡护员食物 (10.3万美元)', value: 103660 },
+                        { name: '巡护员工资 (10.2万美元)', value: 102240 },
+                        { name: '燃油与维修 (1.4万美元)', value: 14400 },
+                        { name: '装备与器材 (1.2万美元)', value: 12407 },
+                    ]
+                },
+                sec5: {
+                    title: '五、 参与我们的守护行动',
+                    desc: '为了把牧区逐步转换为真正有效的自然保护区并保障长期运转，我们需要以下资金和物资支持。您可以点击下方卡片进行认捐：',
+                    fundsH: '资金支持 (可单独认捐项目)',
+                    items: [
+                        { id: 'land', icon: 'map', title: '1英亩保护区土地租金', desc: '支持1年，保障牧民长期收益', price: 20 },
+                        { id: 'food', icon: 'soup', title: '巡护员食物保障', desc: '支持1名巡护员1天的基本食物', price: 4 },
+                        { id: 'salary', icon: 'users', title: '巡护员工资', desc: '支持1名巡护员1个月的薪酬', price: 120 },
+                        { id: 'equip', icon: 'shield', title: '巡护员基础装备', desc: '制服/皮靴/雨具/睡袋等(可用3年)', price: 220 },
+                        { id: 'phone', icon: 'smartphone', title: '手机与摄影装备', desc: '拍摄影像、报告盗猎风险(可用3年)', price: 300 },
+                        { id: 'camera', icon: 'camera', title: '红外监测相机', desc: '监测野生动物及记录活动轨迹', price: 60 },
+                        { id: 'moto', icon: 'bike', title: '机动巡护摩托车', desc: '提升草原巡逻与反盗猎的机动性', price: 1500 },
+                        { id: 'fence', icon: 'check-circle-2', title: '标准化防狮围栏', desc: '加固牛羊圈，有效缓解人兽冲突', price: 2500 },
+                        { id: 'station', icon: 'home', title: '建设1个巡护站', desc: '含太阳能/储水/住宿，提升快反能力', price: 10000 },
+                        { id: 'jeep', icon: 'car', title: '巡护越野车', desc: '伤病动物救援及核心区重装巡护', price: 60000 },
+                    ],
+                    pledgeBtn: '认捐此项',
+                    matsH: '物资支持 (我们也欢迎以下物资捐赠)',
+                    materials: ['越野车', '摩托车', '红外相机', '智能手机', '手电筒', '头灯', '望远镜', '手持摄像机', '笔记本电脑', '固态硬盘', '对讲机', '巡护制服', '皮靴', '雨具', '睡袋', '野外厨具', '太阳能照明设备', '储水设备'],
+                    cart: { bill: '您的野保影响力账单', total: '合计:', unit: 'USD', sub: '您将资助 {num} 项急需的物资与行动。', submit: '联系基金会确认捐赠' }
+                },
                 footer: {
-                    org: 'Habitat Watcher Foundation (美国注册 501(c)(3) 非营利组织)。\n致力于野生动物栖息地保护、社区自然保护区建设及人兽冲突缓解。',
+                    org: 'Habitat Watcher Foundation (栖息地守望者基金会)\n美国注册 501(c)(3) 非营利组织。\n长期致力于野生动物栖息地保护、社区自然保护区建设、生态教育和人兽冲突缓解。',
                     pub: '发布：马拉野保学院',
                     founderTitle: '创始人：星巴 (Simba Qiang Zhuo)',
                     founderDesc1: '扎根马赛马拉的中国野保探险家。数十年来致力于研究野生动物行为，化解人兽冲突（Human-Wildlife Conflict），保护和恢复野生动物栖息地，并连接全球华人参与非洲野保行动。',
@@ -224,30 +350,78 @@
                 }
             },
             en: {
-                nav: { title: 'Habitat Watcher Foundation', donate: 'Donate Now', toggle: '中文' },
-                hero: { tag: 'Maasai Mara Ecological Transition Fund', title1: 'Let the savanna nourish the Maasai,', title2: 'and the lions and elephants once again.', desc: "The savanna's carrying capacity is nearing its limit. We are not evicting the Maasai; instead, we establish 'Community Conservancies' to achieve a win-win for ecological restoration and community prosperity.", btn: 'Support Our Action' },
-                crisis: { title: 'The Crisis We Face', p1: 'With the increase in population and livestock, the Maasai Mara faces severe soil erosion and vegetation degradation. Wildlife loses habitat, and human-wildlife conflict intensifies.', p2: 'Hard segregation alone cannot solve the problem. Pasture degradation ultimately hurts not just wildlife, but the Maasai communities who depend deeply on the savanna.' },
-                solution: { title: 'Our Solution:<br>Community Conservancy Model', items: ['Pay land leases to pastoralists, providing stable income', 'Reduce grazing pressure in core areas, restore vegetation', 'Establish local ranger systems, conduct anti-poaching patrols', 'Build predator-proof fences to protect livestock and mitigate conflict'] },
-                transparency: { title: 'Financial Transparency: Where Does Your Donation Go?', desc: 'We support Nashulai, Mara Ripoi, and Olarro conservancies (totaling ~38,500 acres). Nearly 80% of the budget goes directly to the Maasai community as land leases, the cornerstone of sustainable conservancy operations.' },
-                budget: [
-                    { name: 'Land Leases (Community Return)', value: 770000 },
-                    { name: 'Ranger System (Manpower & Gear)', value: 218207 },
-                    { name: 'Operations (Vehicles/Fuel)', value: 14400 },
-                ],
-                itemsSection: { title: 'Choose Your Guardianship Project', desc: 'Every contribution, big or small, truly changes the fate of the East African savanna. Please select the specific projects you wish to fund:', pledgeBtn: 'Pledge' },
-                items: [
-                    { id: 'land', icon: 'map', title: 'Conservancy Land Lease', desc: 'Support 1 acre lease for 1 year, ensuring pastoralist income', price: 20 },
-                    { id: 'food', icon: 'trees', title: 'Ranger Food Security', desc: 'Provide basic field food for 1 ranger for 1 day', price: 4 },
-                    { id: 'salary', icon: 'users', title: 'Ranger Salary', desc: 'Support 1 month salary for 1 ranger', price: 120 },
-                    { id: 'equipment', icon: 'shield', title: 'Basic Ranger Equipment', desc: 'Uniforms, boots, rain gear, sleeping bags (lasts 3 years)', price: 220 },
-                    { id: 'camera', icon: 'camera', title: 'Infrared Trail Camera', desc: 'Used for monitoring wildlife and poaching activities', price: 60 },
-                    { id: 'fence', icon: 'check-circle-2', title: 'Standardized Predator-proof Fence', desc: 'Reinforce livestock enclosures, effectively mitigate conflicts', price: 2500 },
-                    { id: 'moto', icon: 'trending-up', title: 'Patrol Motorcycle', desc: 'Enhance mobility for patrols and anti-poaching', price: 1500 },
-                    { id: 'jeep', icon: 'car', title: 'Patrol 4x4 Vehicle', desc: 'Rescue injured animals and conduct heavy-duty core patrols', price: 60000 },
-                ],
-                cart: { bill: 'Your Conservation Impact Bill', total: 'Total:', unit: 'USD', sub: 'You are funding {num} urgently needed supplies and actions.', submit: 'Submit Pledge Intent' },
+                nav: { title: 'Habitat Watcher Foundation', donate: 'Support Now', toggle: '中文' },
+                hero: { tag: 'Maasai Mara Transition Plan', title: 'Why Convert Pastures into Conservancies?', desc: '"This is not about evicting pastoralists; it is about letting the savanna nourish the Maasai, and the lions, elephants, and the entire Maasai Mara once again."', btn: 'Join the Guardianship' },
+                sec1: { 
+                    title: 'I. The Crisis We Face', 
+                    sub: 'The Maasai and wildlife have shared the savanna for generations. But overpopulation and overgrazing push the carrying capacity to its limits, compressing living spaces.',
+                    h1: 'Ecological Pressures', h2: 'Severe Consequences', conclusion: 'In short: Savanna degradation ultimately hurts not just wildlife, but the Maasai communities who depend on it.',
+                    crises: ['Exacerbated Soil Erosion', 'Severe Vegetation Degradation', 'Loss of Wildlife Habitats', 'Decline in Biodiversity', 'Over-reliance on Grazing for Income'],
+                    consequences: [
+                        '<strong>Worsening Dry Seasons:</strong> Less vegetation means lower water retention, causing water scarcity.',
+                        '<strong>Severe Floods:</strong> Degraded soil cannot absorb rain, leading to floods destroying enclosures.',
+                        '<strong>Habitat Loss:</strong> Space for lions and elephants is compressed, population drops.',
+                        '<strong>Ecological Imbalance:</strong> Natural balance is broken, increasing disease risks.',
+                        '<strong>Worsening Livelihoods:</strong> Livestock quality drops, deepening poverty.'
+                    ]
+                },
+                sec2: {
+                    title: 'II. Solutions & Community Win-Win',
+                    sub: 'A new model: Conservation + Restoration + Community Benefits + Sustainability. Nature conservation must truly benefit the locals.',
+                    h1: 'How to Solve It?', h2: 'Improved Community Welfare',
+                    solutions: [
+                        { icon: 'banknote', t: 'Pay Land Leases', d: 'Provide stable income for protecting their land' },
+                        { icon: 'leaf', t: 'Reduce Core Grazing', d: 'Give grass time to recover, creating safe wildlife habitats' },
+                        { icon: 'camera', t: 'Develop Eco-Tourism', d: 'Create sustainable income via safaris & camps' },
+                        { icon: 'shield-check', t: 'Establish Rangers', d: 'Anti-poaching, monitoring, and mitigating conflicts' },
+                        { icon: 'smartphone', t: 'Scientific Monitoring', d: 'Use cameras & phones to track habitat changes' }
+                    ],
+                    welfare: ['Better Schools', 'Water Facilities', 'Women Employment', 'Youth Ranger Training', 'Improved Public Services'],
+                    chartTitle: 'Maasai Family Annual Income Comparison', chartSub: 'Conservation works only when wildlife turns from a "threat" to an "asset"',
+                    incomeData: [{name: 'Traditional Grazing', val: 500}, {name: 'Conservancy Model', val: 3700}]
+                },
+                sec3: {
+                    title: 'III. Where Are Our Conservancies?',
+                    loc_country: 'Country:', loc_region: 'Region:', loc_coord: 'Coordinates:',
+                    desc: 'Our focus is supporting community conservancies in the Maasai Mara, helping locals gain long-term income through conservation and eco-tourism, while protecting critical wildlife habitats.',
+                    chartTitle: 'The Three Conservancies We Support', chartSub: 'Totaling ~38,500 acres (156 km²), equipped with 71 rangers',
+                    areaData: [{name: 'Nashulai (18 Rangers)', value: 5000}, {name: 'Mara Ripoi (33 Rangers)', value: 13500}, {name: 'Olarro (20 Rangers)', value: 20000}]
+                },
+                sec4: {
+                    title: 'IV. Basic Annual Budget',
+                    sub: 'The basic annual budget is approx. $1 Million USD. Land leases form the foundation for conservancies to exist long-term, directly benefiting the pastoralists.',
+                    note: '* This excludes one-time costs for 4x4s, motorcycles, new ranger stations, bulk cameras, and fences.',
+                    budgetData: [
+                        { name: 'Land Leases ($770k)', value: 770000 },
+                        { name: 'Ranger Food ($103k)', value: 103660 },
+                        { name: 'Ranger Salary ($102k)', value: 102240 },
+                        { name: 'Fuel & Maint. ($14k)', value: 14400 },
+                        { name: 'Gear & Tech ($12k)', value: 12407 },
+                    ]
+                },
+                sec5: {
+                    title: 'V. Participate in Our Mission',
+                    desc: 'To successfully transition pastures and ensure long-term operations, we need the following support. Select items below to simulate a pledge:',
+                    fundsH: 'Financial Support (Pledge Items)',
+                    items: [
+                        { id: 'land', icon: 'map', title: '1 Acre Land Lease', desc: 'Support for 1 year, ensuring pastoralist income', price: 20 },
+                        { id: 'food', icon: 'soup', title: 'Ranger Food', desc: 'Basic food for 1 ranger for 1 day', price: 4 },
+                        { id: 'salary', icon: 'users', title: 'Ranger Salary', desc: 'Salary for 1 ranger for 1 month', price: 120 },
+                        { id: 'equip', icon: 'shield', title: 'Ranger Gear', desc: 'Uniform/Boots/Sleeping bag (lasts 3 yrs)', price: 220 },
+                        { id: 'phone', icon: 'smartphone', title: 'Phone & Photo Gear', desc: 'For monitoring and reporting (lasts 3 yrs)', price: 300 },
+                        { id: 'camera', icon: 'camera', title: 'Infrared Camera', desc: 'Monitor wildlife activities and paths', price: 60 },
+                        { id: 'moto', icon: 'bike', title: 'Patrol Motorcycle', desc: 'Enhance patrol & anti-poaching mobility', price: 1500 },
+                        { id: 'fence', icon: 'check-circle-2', title: 'Predator-proof Fence', desc: 'Reinforce enclosures, mitigate conflicts', price: 2500 },
+                        { id: 'station', icon: 'home', title: 'Build 1 Ranger Station', desc: 'Includes solar/water to boost reaction time', price: 10000 },
+                        { id: 'jeep', icon: 'car', title: 'Patrol 4x4 Jeep', desc: 'Animal rescue and heavy-duty core patrols', price: 60000 },
+                    ],
+                    pledgeBtn: 'Pledge',
+                    matsH: 'Material Support (Also welcomed)',
+                    materials: ['4x4 Vehicles', 'Motorcycles', 'Trail Cameras', 'Smartphones', 'Flashlights', 'Headlamps', 'Binoculars', 'Camcorders', 'Laptops', 'SSDs', 'Walkie-talkies', 'Uniforms', 'Boots', 'Rain gear', 'Sleeping bags', 'Cookware', 'Solar Lights', 'Water Tanks'],
+                    cart: { bill: 'Your Conservation Impact', total: 'Total:', unit: 'USD', sub: 'You are funding {num} critical items.', submit: 'Contact Us to Donate' }
+                },
                 footer: {
-                    org: 'Habitat Watcher Foundation (Registered 501(c)(3) non-profit in the US).\nDedicated to wildlife habitat protection, community conservancy building, and mitigating human-wildlife conflicts.',
+                    org: 'Habitat Watcher Foundation\nRegistered 501(c)(3) non-profit in the US.\nDedicated to wildlife habitat protection, community conservancy building, and mitigating human-wildlife conflicts.',
                     pub: 'Published by: Maasai Mara Conservation Academy',
                     founderTitle: 'Founder: Simba Qiang Zhuo',
                     founderDesc1: 'A Chinese wildlife conservation explorer based in the Maasai Mara. Decades spent studying wildlife behavior, resolving human-wildlife conflicts (HWC), protecting and restoring habitats, and connecting the global Chinese community to African conservation efforts.',
@@ -260,45 +434,84 @@
             }
         };
 
-        // --- 2. 全局状态 ---
+        // --- 全局状态 ---
         let currentLang = 'zh';
         let cartState = {};
-        let myChart = null;
+        let charts = {};
 
-        // --- 3. DOM 更新函数 ---
+        // --- DOM 更新函数 ---
         function updateUI() {
             const t = dict[currentLang];
 
-            // 文本更新
+            // Nav & Hero
             document.getElementById('nav-title').innerText = t.nav.title;
             document.getElementById('nav-toggle').innerText = t.nav.toggle;
             document.getElementById('nav-donate').innerText = t.nav.donate;
-            
             document.getElementById('hero-tag').innerText = t.hero.tag;
-            document.getElementById('hero-title1').innerText = t.hero.title1;
-            document.getElementById('hero-title2').innerText = t.hero.title2;
+            document.getElementById('hero-title').innerText = t.hero.title;
             document.getElementById('hero-desc').innerText = t.hero.desc;
             document.getElementById('hero-btn').innerText = t.hero.btn;
 
-            document.getElementById('crisis-title').innerText = t.crisis.title;
-            document.getElementById('crisis-p1').innerText = t.crisis.p1;
-            document.getElementById('crisis-p2').innerText = t.crisis.p2;
+            // Sec 1
+            document.getElementById('sec1-title').innerText = t.sec1.title;
+            document.getElementById('sec1-sub').innerText = t.sec1.sub;
+            document.getElementById('sec1-h1').innerText = t.sec1.h1;
+            document.getElementById('sec1-h2').innerText = t.sec1.h2;
+            document.getElementById('sec1-conclusion').innerText = t.sec1.conclusion;
+            
+            document.getElementById('crisis-list').innerHTML = t.sec1.crises.map(item => 
+                `<li class="flex items-center gap-2"><i data-lucide="x-circle" class="w-5 h-5 text-textMuted"></i><span>${item}</span></li>`
+            ).join('');
+            
+            document.getElementById('consequence-list').innerHTML = t.sec1.consequences.map(item => 
+                `<li class="flex items-start gap-2"><i data-lucide="chevron-right" class="w-5 h-5 text-maasaiRed mt-1 flex-shrink-0"></i><span>${item}</span></li>`
+            ).join('');
 
-            document.getElementById('solution-title').innerHTML = t.solution.title;
-            document.getElementById('solution-items').innerHTML = t.solution.items.map(item => `
-                <li class="flex items-start gap-3">
-                    <i data-lucide="check-circle-2" class="w-6 h-6 flex-shrink-0 mt-0.5 text-simbaGreen"></i>
-                    <span class="font-medium">${item}</span>
-                </li>
+            // Sec 2
+            document.getElementById('sec2-title').innerText = t.sec2.title;
+            document.getElementById('sec2-sub').innerText = t.sec2.sub;
+            document.getElementById('sec2-h1').innerText = t.sec2.h1;
+            document.getElementById('sec2-h2').innerText = t.sec2.h2;
+            
+            document.getElementById('solution-grid').innerHTML = t.sec2.solutions.map(s => `
+                <div class="flex gap-4 p-4 rounded-xl bg-bgLight border border-bgSand">
+                    <div class="mt-1 bg-simbaGreen/10 p-2 rounded-full h-fit"><i data-lucide="${s.icon}" class="w-6 h-6 text-simbaGreen"></i></div>
+                    <div><h4 class="font-bold text-lg">${s.t}</h4><p class="text-textMuted text-sm">${s.d}</p></div>
+                </div>
             `).join('');
 
-            document.getElementById('transparency-title').innerText = t.transparency.title;
-            document.getElementById('transparency-desc').innerText = t.transparency.desc;
+            document.getElementById('welfare-list').innerHTML = t.sec2.welfare.map(w => 
+                `<span class="px-4 py-2 bg-simbaGreen/10 text-simbaGreen font-bold rounded-full text-sm">${w}</span>`
+            ).join('');
 
-            document.getElementById('items-title').innerText = t.itemsSection.title;
-            document.getElementById('items-desc').innerText = t.itemsSection.desc;
+            document.getElementById('income-chart-title').innerText = t.sec2.chartTitle;
+            document.getElementById('income-chart-sub').innerText = t.sec2.chartSub;
 
-            // 底部更新
+            // Sec 3
+            document.getElementById('sec3-title').innerText = t.sec3.title;
+            document.getElementById('loc-country').innerText = t.sec3.loc_country;
+            document.getElementById('loc-region').innerText = t.sec3.loc_region;
+            document.getElementById('loc-coord').innerText = t.sec3.loc_coord;
+            document.getElementById('sec3-desc').innerText = t.sec3.desc;
+            document.getElementById('area-chart-title').innerText = t.sec3.chartTitle;
+            document.getElementById('area-chart-sub').innerText = t.sec3.chartSub;
+
+            // Sec 4
+            document.getElementById('sec4-title').innerText = t.sec4.title;
+            document.getElementById('sec4-sub').innerText = t.sec4.sub;
+            document.getElementById('sec4-note').innerText = t.sec4.note;
+
+            // Sec 5
+            document.getElementById('items-title').innerText = t.sec5.title;
+            document.getElementById('items-desc').innerText = t.sec5.desc;
+            document.getElementById('funds-h').innerHTML = `<i data-lucide="coins" class="text-accentGold"></i> ${t.sec5.fundsH}`;
+            document.getElementById('mats-h').innerHTML = `<i data-lucide="package" class="text-earthBrown"></i> ${t.sec5.matsH}`;
+            
+            document.getElementById('materials-list').innerHTML = t.sec5.materials.map(m => 
+                `<span class="px-3 py-1 bg-white border border-bgSand rounded text-textMuted">${m}</span>`
+            ).join('');
+
+            // Footer
             document.getElementById('footer-nav-title').innerText = t.nav.title;
             document.getElementById('footer-org').innerText = t.footer.org;
             document.getElementById('footer-pub').innerText = t.footer.pub;
@@ -310,80 +523,85 @@
             document.getElementById('footer-social2').innerText = t.footer.social2;
             document.getElementById('footer-copyright').innerText = t.footer.copyright;
 
-            // 购物车文案更新
-            document.getElementById('cart-bill').innerText = t.cart.bill;
-            document.getElementById('cart-total-label').innerText = t.cart.total;
-            document.getElementById('cart-unit').innerText = t.cart.unit;
-            document.getElementById('cart-submit').innerText = t.cart.submit;
+            // Cart details
+            document.getElementById('cart-bill').innerText = t.sec5.cart.bill;
+            document.getElementById('cart-total-label').innerText = t.sec5.cart.total;
+            document.getElementById('cart-unit').innerText = t.sec5.cart.unit;
+            document.getElementById('cart-submit').innerText = t.sec5.cart.submit;
 
-            // 重新渲染组件
-            renderChart();
+            // Renders
             renderGrid();
             updateCartUI();
-            
-            // 重新初始化所有图标
+            renderCharts();
             lucide.createIcons();
         }
 
-        // --- 4. 语言切换 ---
         function toggleLang() {
             currentLang = currentLang === 'zh' ? 'en' : 'zh';
             updateUI();
         }
 
-        // --- 5. 渲染图表 (ECharts) ---
-        function renderChart() {
-            if (!myChart) {
-                myChart = echarts.init(document.getElementById('budgetChart'));
-            }
+        // --- 图表渲染 (ECharts) ---
+        function renderCharts() {
             const t = dict[currentLang];
-            const option = {
+            
+            // 1. 收入对比图 (Bar)
+            if (!charts.income) charts.income = echarts.init(document.getElementById('incomeChart'));
+            charts.income.setOption({
+                tooltip: { trigger: 'axis', axisPointer: { type: 'shadow' } },
+                grid: { left: '3%', right: '4%', bottom: '3%', containLabel: true },
+                xAxis: { type: 'category', data: t.sec2.incomeData.map(d=>d.name), axisLabel: { color: '#705A45', fontWeight: 'bold' } },
+                yAxis: { type: 'value', axisLabel: { formatter: '${value}' } },
+                series: [{
+                    data: t.sec2.incomeData.map(d=>({
+                        value: d.val,
+                        itemStyle: { color: d.val > 1000 ? '#3A5F43' : '#D4AF37', borderRadius: [4, 4, 0, 0] }
+                    })),
+                    type: 'bar',
+                    barWidth: '40%',
+                    label: { show: true, position: 'top', formatter: '${c}', fontWeight: 'bold' }
+                }]
+            });
+
+            // 2. 面积分布图 (Pie)
+            if (!charts.area) charts.area = echarts.init(document.getElementById('areaChart'));
+            charts.area.setOption({
+                tooltip: { trigger: 'item', formatter: '{b}: {c} ({d}%)' },
+                color: ['#3A5F43', '#8E2814', '#D4AF37'],
+                series: [{
+                    type: 'pie', radius: ['40%', '70%'],
+                    itemStyle: { borderRadius: 5, borderColor: '#fff', borderWidth: 2 },
+                    label: { show: true, formatter: '{b}\n{d}%', color: '#3E2C1B', fontWeight: 'bold' },
+                    data: t.sec3.areaData
+                }]
+            });
+
+            // 3. 预算图 (Pie)
+            if (!charts.budget) charts.budget = echarts.init(document.getElementById('budgetChart'));
+            charts.budget.setOption({
                 tooltip: { trigger: 'item', formatter: '${c} ({d}%)' },
-                color: ['#3A5F43', '#D4AF37', '#8E2814'],
-                series: [
-                    {
-                        type: 'pie',
-                        radius: ['50%', '80%'],
-                        avoidLabelOverlap: true,
-                        itemStyle: { borderRadius: 4, borderColor: '#fff', borderWidth: 2 },
-                        label: {
-                            show: true,
-                            formatter: '{b}\n{d}%',
-                            fontSize: 13,
-                            fontWeight: 'bold',
-                            color: '#3E2C1B'
-                        },
-                        data: t.budget
-                    }
-                ]
-            };
-            myChart.setOption(option);
+                color: ['#3A5F43', '#D4AF37', '#8E2814', '#6B4423', '#2C4A34'],
+                series: [{
+                    type: 'pie', radius: ['30%', '75%'], roseType: 'radius',
+                    itemStyle: { borderRadius: 4 },
+                    label: { show: true, formatter: '{b}', fontSize: 13, color: '#3E2C1B', fontWeight: 'bold' },
+                    data: t.sec4.budgetData
+                }]
+            });
         }
 
-        // --- 6. 渲染认捐项目网格 ---
+        // --- 认捐网格渲染 ---
         function renderGrid() {
             const t = dict[currentLang];
-            const gridHTML = t.items.map(item => {
+            const gridHTML = t.sec5.items.map(item => {
                 const qty = cartState[item.id] || 0;
-                let actionBtnHTML = '';
-                
-                if (qty === 0) {
-                    actionBtnHTML = `
-                        <button onclick="updateCart('${item.id}', 1)" class="px-4 py-2 rounded font-bold text-sm transition-colors bg-simbaGreen text-bgLight">
-                            ${t.itemsSection.pledgeBtn}
-                        </button>`;
-                } else {
-                    actionBtnHTML = `
-                        <div class="flex items-center gap-3 bg-gray-50 rounded px-2 py-1 border border-bgSand">
-                            <button onclick="updateCart('${item.id}', -1)" class="p-1 rounded-full hover:bg-gray-200 text-textMuted">
-                                <i data-lucide="minus" class="w-4 h-4"></i>
-                            </button>
+                let actionBtnHTML = qty === 0 
+                    ? `<button onclick="updateCart('${item.id}', 1)" class="px-4 py-2 rounded font-bold text-sm transition-colors bg-simbaGreen text-bgLight hover:bg-opacity-90">${t.sec5.pledgeBtn}</button>`
+                    : `<div class="flex items-center gap-3 bg-gray-50 rounded px-2 py-1 border border-bgSand">
+                            <button onclick="updateCart('${item.id}', -1)" class="p-1 rounded-full hover:bg-gray-200 text-textMuted"><i data-lucide="minus" class="w-4 h-4"></i></button>
                             <span class="font-bold w-4 text-center">${qty}</span>
-                            <button onclick="updateCart('${item.id}', 1)" class="p-1 rounded-full hover:bg-gray-200 text-simbaGreen">
-                                <i data-lucide="plus" class="w-4 h-4"></i>
-                            </button>
-                        </div>`;
-                }
+                            <button onclick="updateCart('${item.id}', 1)" class="p-1 rounded-full hover:bg-gray-200 text-simbaGreen"><i data-lucide="plus" class="w-4 h-4"></i></button>
+                       </div>`;
 
                 return `
                     <div class="bg-white rounded-2xl p-6 shadow-sm flex flex-col relative transition-shadow hover:shadow-md border border-bgSand">
@@ -405,33 +623,23 @@
             lucide.createIcons();
         }
 
-        // --- 7. 更新购物车数据 ---
+        // --- 购物车逻辑 ---
         window.updateCart = function(id, delta) {
             const currentQty = cartState[id] || 0;
             const newQty = Math.max(0, currentQty + delta);
-            
-            if (newQty === 0) {
-                delete cartState[id];
-            } else {
-                cartState[id] = newQty;
-            }
-            
+            if (newQty === 0) delete cartState[id]; else cartState[id] = newQty;
             renderGrid();
             updateCartUI();
         };
 
-        // --- 8. 刷新底部悬浮结算栏 ---
         function updateCartUI() {
             const t = dict[currentLang];
             let totalAmount = 0;
             let totalItemsCount = 0;
 
             for (const [id, qty] of Object.entries(cartState)) {
-                const itemDef = t.items.find(i => i.id === id);
-                if (itemDef) {
-                    totalAmount += itemDef.price * qty;
-                    totalItemsCount += qty;
-                }
+                const itemDef = t.sec5.items.find(i => i.id === id);
+                if (itemDef) { totalAmount += itemDef.price * qty; totalItemsCount += qty; }
             }
 
             const cartEl = document.getElementById('cart-summary');
@@ -439,22 +647,20 @@
                 cartEl.classList.remove('hidden');
                 cartEl.classList.add('flex');
                 document.getElementById('cart-total-amount').innerText = totalAmount.toLocaleString();
-                document.getElementById('cart-sub').innerText = t.cart.sub.replace('{num}', totalItemsCount);
+                document.getElementById('cart-sub').innerText = t.sec5.cart.sub.replace('{num}', totalItemsCount);
             } else {
                 cartEl.classList.add('hidden');
                 cartEl.classList.remove('flex');
             }
         }
 
-        // --- 9. 窗口大小调整时自适应图表 ---
+        // --- 窗口大小调整自适应 ---
         window.addEventListener('resize', () => {
-            if (myChart) myChart.resize();
+            Object.values(charts).forEach(chart => chart && chart.resize());
         });
 
-        // --- 页面加载完成后初始化 ---
-        window.onload = () => {
-            updateUI();
-        };
+        // --- 初始化 ---
+        window.onload = () => { updateUI(); };
 
     </script>
 </body>
